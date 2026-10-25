@@ -92,20 +92,6 @@ def build_index(
     dataset_dir: str = DATASET_DIR,
     progress_callback: Optional[Callable[[str, int, int, float], None]] = None
 ) -> int:
-    """
-    Membangun indeks Whoosh dari file CSV dataset.
-
-    Parameters:
-        sources: List nama dataset yang ingin diindeks (default: semua 5 dataset)
-        limit_per_source: Batas dokumen per file CSV (None = seluruh dokumen)
-        use_stemming: Apakah menerapkan stemming (default: False untuk efisiensi)
-        index_dir: Direktori penyimpanan indeks Whoosh
-        dataset_dir: Direktori tempat file CSV dataset berada
-        progress_callback: Fungsi callback untuk memantau progress (source, current, total, elapsed)
-
-    Returns:
-        Jumlah total dokumen yang berhasil diindeks.
-    """
     if sources is None:
         sources = list(DATASET_FILES.keys())
 
