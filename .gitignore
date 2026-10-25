@@ -1,0 +1,9 @@
+# Cache Python
+__pycache__/
+*.pyc
+
+# Indeks Whoosh (bisa di-generate ulang di lokal masing-masing)
+indexdir/
+
+# Dataset ukuran besar (opsional, jika tidak ingin di-push ke GitHub)
+# dataset/
