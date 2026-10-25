@@ -1,10 +1,3 @@
-"""
-Module Retrieval dan Ranking untuk Information Retrieval (IR) System.
-Mengintegrasikan:
-1. Whoosh Inverted Index untuk pencarian kandidat dokumen
-2. CountVectorizer (Bag of Words / BoW) untuk representasi vektor dokumen & query
-3. Cosine Similarity untuk ranking dokumen berdasarkan kemiripan vektor
-"""
 
 import os
 import re
@@ -111,17 +104,6 @@ class InformationRetrievalEngine:
         source_filter: Optional[str] = None,
         use_stemming: bool = False
     ) -> Tuple[List[SearchResult], Dict]:
-        """
-        Melakukan pencarian query dan ranking dokumen:
-        1. Preprocessing Query (Case folding, Tokenizing, Stopword removal)
-        2. Whoosh Inverted Index Query (Mengambil kandidat dokumen relevan)
-        3. BoW Representasi via CountVectorizer
-        4. Cosine Similarity Calculation
-        5. Pemeringkatan (Ranking) Top-K
-
-        Returns:
-            Tuple (daftar SearchResult, dictionary metadata proses IR)
-        """
         ix = self._get_index()
 
         # 1. Preprocessing Query

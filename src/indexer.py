@@ -1,13 +1,3 @@
-"""
-Module Indexing Dokumen menggunakan Whoosh untuk Information Retrieval System.
-Mendukung 5 dataset utama:
-1. etd-usk (tesis/disertasi Universitas Syiah Kuala)
-2. etd-ugm (tesis/disertasi Universitas Gadjah Mada)
-3. kompas (berita harian nasional)
-4. tempo (majalah berita dan opini)
-5. mojok (artikel populer dan satir)
-"""
-
 import os
 import time
 import pandas as pd
@@ -32,14 +22,6 @@ DATASET_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'dataset'
 
 
 def get_schema() -> Schema:
-    """
-    Mendefinisikan skema indeks Whoosh:
-    - doc_id: ID unik dokumen (contoh: kompas_12, etd-ugm_45)
-    - source: Sumber dataset (etd-usk, etd-ugm, kompas, tempo, mojok)
-    - judul: Judul asli dokumen (stored)
-    - konten: Konten teks asli dokumen (stored)
-    - clean_text: Teks hasil preprocessing (case folding, tokenized, stopword removed)
-    """
     return Schema(
         doc_id=ID(stored=True, unique=True),
         source=ID(stored=True),
@@ -50,7 +32,6 @@ def get_schema() -> Schema:
 
 
 def is_index_built(index_dir: str = DEFAULT_INDEX_DIR) -> bool:
-    """Mengecek apakah direktori indeks Whoosh sudah dibuat dan memiliki dokumen."""
     if not os.path.exists(index_dir):
         return False
     if not exists_in(index_dir):
