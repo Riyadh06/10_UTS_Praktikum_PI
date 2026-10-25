@@ -1,4 +1,3 @@
-
 import os
 import re
 from typing import List, Dict, Tuple, Optional
@@ -77,10 +76,6 @@ def extract_snippet(text: str, query_tokens: List[str], max_len: int = 240) -> s
 
 
 class InformationRetrievalEngine:
-    """
-    Mesin Penelusuran Informasi (IR Engine).
-    Menggabungkan Whoosh Search + Bag of Words (CountVectorizer) + Cosine Similarity.
-    """
     def __init__(self, index_dir: str = DEFAULT_INDEX_DIR):
         self.index_dir = index_dir
         self._index = None
